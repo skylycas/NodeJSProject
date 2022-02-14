@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    header
+    main
+        .container.page-section.text-center
+            .custombox6
+                .text-center
+                    h2.section-heading.text-uppercase My Bookings
+                    br                    
+                    .row.align-items-stretch.mb-5
+                        p.section-subheading.text-muted click each item to view details of your bookings
+                            each bookedroom in bookedrooms
+                                form#contactForm(action='mybookings' method='POST')
+                                    .col-md-12
+                                        .form-group
+                                            p
+                                                input#bookedroomid(type='text' name='bookedroomid' value='#{bookedroom._id}')
+                                                button#submit.btn.btn-outline-warning(type='submit') #{bookedroom.roomtitle} - (#{bookedroom.datefrom} - #{bookedroom.dateto})                                                

@@ -1,0 +1,71 @@
+extends layout
+
+block content
+    header
+    main
+        .container
+            .page-section
+                br
+                br
+                form#contactForm(action='bookroom' method='POST')
+                    .custombox1
+                        .text-center
+                            h2.section-heading.text-uppercase #{roomtitle}
+                            h3.section-subheading.text-muted Description: #{roomtitle}                
+                            .row.align-items-stretch.mb-5
+                                .col-md-12
+                                    .form-group
+                                        p Name: #{firstname} #{lastname}                                        
+                                .col-md-6
+                                    .form-group
+                                        // From Date
+                                        p
+                                            input#dateFrom.form-control(type='date' name='datefrom' required='' ng-model='datefrom')                                    
+                                .col-md-6
+                                    .form-group
+                                        // To Date
+                                        p
+                                            input#dateTo.form-control(type='date' name='dateto' required='' ng-model='dateto')
+                            // Submit Button
+                            .text-center
+                                button#submit.btn.btn-primary.btn-xl.text-uppercase(type='submit') Book
+                    .custombox2
+                        //
+                            <h5>Your Cart</h5>
+                            <hr>
+                            <h6>From: &emsp;&emsp;&emsp;&emsp;&emsp; Dec 23, 2021</h6>
+                            <h6>To: &emsp;&emsp;&emsp;&emsp;&emsp; Dec 23, 2021</h6>
+                        .custombox3
+                            h6 From:
+                        .custombox4
+                            | {{datefrom | date}}
+                        .custombox3
+                            h6 To:
+                        .custombox4
+                            | {{dateto | date}}
+                        .custombox3
+                            h6 Days:
+                        .custombox4
+                            | {{getdays()}} days
+                            input#noOfDays(type='hidden' name='noOfDays' value='{{getdays()}}')
+                        .custombox3
+                            h6 Rate:
+                        .custombox4
+                            |$#{price} (per night)
+                        .custombox3
+                            h6 Sub-Total:
+                        #subtotal.custombox4(ng-model='subtotal' ng-init ='subtotal=#{price}')
+                            |  {{subtotal*getdays() | currency}}
+                            input#subtotal(type='hidden' name='subtotal' value='{{subtotal*getdays()}}')
+                        .custombox3
+                            h6 Tax (13%):
+                        .custombox4
+                            | {{subtotal*getdays()*0.13 | currency}}
+                            input#tax(type='hidden' name='tax' value='{{subtotal*getdays()*0.13}}')
+                        hr
+                        .custombox3
+                            h6 Total:
+                        .custombox4
+                            | {{ (subtotal*getdays()) + (subtotal*getdays()*0.13) | currency}}
+                            input#tax(type='hidden' name='total' value='{{(subtotal*getdays()) + (subtotal*getdays()*0.13)}}')
+                        hr

@@ -1,0 +1,45 @@
+extends layout
+
+block content
+    header
+    main
+        .container.page-section.text-center
+            .custombox1
+                .custombox5
+                    .text-center
+                        h2.section-heading.text-uppercase Booking Receipt
+                    form#contactForm
+                        .row.align-items-stretch.mb-5
+                            .col-md-12
+                                .form-group.text-center
+                                    h5.text-muted #{bookedroomObj.roomtitle}
+                                    .custombox3
+                                        h6 Name:
+                                    .custombox4
+                                        |  #{fullname}
+                                    .custombox3
+                                        h6 Period:
+                                    .custombox4
+                                        | #{bookedroomObj.datefrom} to #{bookedroomObj.dateto} 
+                                    .custombox3
+                                        h6 Rate:
+                                    .custombox4
+                                        | $#{bookedroomObj.price}                                        
+                                    .custombox3
+                                        h6 Sub-Total:
+                                    .custombox4
+                                        |  $#{bookedroomObj.subtotal}
+                                    .custombox3
+                                        h6 Tax:
+                                    .custombox4
+                                        |  $#{bookedroomObj.tax}                                        
+                                    hr
+                                    .custombox3
+                                        h6 Total:
+                                    .custombox4
+                                        | $#{bookedroomObj.total}
+                                    hr
+                            .col-md-12
+                                br
+                                p.text-center
+                                    button#submit.btn.btn-primary.btn-xl.text-uppercase(type='submit' onclick='window.print()') Print

@@ -1,0 +1,35 @@
+extends layoutadmin
+
+block content
+    header
+    main
+        .container.page-section.text-center
+            .custombox1
+                .text-center
+                    h2.section-heading.text-uppercase Add Room
+                    p(style='color: red;') #{message}
+                form#contactForm(action='addroom' method='POST' enctype='multipart/form-data')
+                    .row.align-items-stretch.mb-5
+                        .col-md-12
+                            .form-group
+                                p
+                                    input#firstname.form-control(type='text' name='roomtitle' placeholder='Room title *' required='')
+                        .col-md-12
+                            .form-group.form-group-textarea.mb-md-0
+                                p
+                                    textarea#message.form-control(name='roomdescription' placeholder='Room Description *' required='')
+                        .col-md-12
+                            .form-group
+                                p
+                                    input#selectimg.form-control(type='file' name='selectimg' accept='image/*')
+                        .col-md-6
+                            .form-group
+                                p
+                                    input#price.form-control(type='number' name='price' min = '25.00' step = '0.5' value='25.00')                                    
+                        .col-md-12
+                            .form-group
+                                p
+                                    #preview
+                    // Submit Button
+                    .text-center
+                        button#submit.btn.btn-primary.btn-xl.text-uppercase(type='submit') Add Room

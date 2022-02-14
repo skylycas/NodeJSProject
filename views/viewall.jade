@@ -1,0 +1,24 @@
+extends layoutadmin
+
+block content
+    header
+    main
+        .container.page-section.text-center
+            .custombox7
+                    .text-center
+                        h2.section-heading.text-uppercase Rooms
+                        br
+                    form#contactForm(action='viewall' method='POST')
+                        .row.align-items-stretch.mb-5
+                                each listofroom in listofrooms
+                                    .col-md-12
+                                        .form-group
+                                            p
+                                                .custombox3
+                                                    img.img-fluid(src='images/rooms/#{listofroom.imagename}' alt='...')
+                                                .custombox4
+                                                    h5.text-muted #{listofroom.roomtitle}
+                                                    h3.section-subheading.text-muted  #{listofroom.roomdescription}
+                                                    button#submit.btn.btn-primary(type='submit') Edit
+                                                    button#submit.btn.btn-danger(type='submit') Delete
+                                                //- input#bookedroom(type='hidden' name='bookedroom' value='#{bookedroom}')

@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    header
+    main
+        .container.page-section.text-center
+            .custombox2
+                .text-center
+                    h2.section-heading.text-uppercase Hey!!!
+                form#contactForm(action='success' method='POST')
+                    .row.align-items-stretch.mb-5
+                        .col-md-12
+                            .form-group
+                                p #{errormsg}
+                                    
+                                p #{message}
+                    .text-center
+                    .col-md-12
+                        br
+                        p
+                            button#submit.btn.btn-primary.btn-xl.text-uppercase(type='submit') Continue

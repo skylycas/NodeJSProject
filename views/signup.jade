@@ -1,0 +1,87 @@
+extends layout
+
+block content
+    header
+    main
+        .container.page-section.text-center
+            .custombox1
+                .text-center
+                    h2.section-heading.text-uppercase Sign Up
+                    p(style='color: red;') #{message}
+                form#contactForm(action='signup' method='POST')
+                    .row.align-items-stretch.mb-5
+                        .col-md-6
+                            .form-group
+                                // First name
+                                p
+                                    input#firstname.form-control(type='text' name='firstname' placeholder='First Name *' required='')
+                        .col-md-6
+                            .form-group
+                                // Last name
+                                p
+                                    input#lastname.form-control(type='text' name='lastname' placeholder='Last Name *' required='')
+                        .col-md-6
+                            .form-group
+                                // select option
+                                p
+                                    select.form-select(name='IdType')
+                                        option(name='' value='0' selected='') Select ID type
+                                        option(name='1' value='Passport') Passport
+                                        option(name='2' value='Drivers License') Drivers License
+                                        option(name='3' value='Permanent Residence') Permanent Residence
+                        .col-md-6
+                            .form-group
+                                // ID Number
+                                p
+                                    input#idnumber.form-control(type='text' name='idnumber' placeholder='ID Number *' required='')
+                        .col-md-6
+                            .form-group
+                                // email
+                                p
+                                    input#emailaddress.form-control(type='email' name='emailaddress' placeholder='Email Address *' required='')
+                        .col-md-6
+                            .form-group
+                                // email
+                                p
+                                    input#password.form-control(type='password' name='password' placeholder='Password *' required='')
+                        .col-md-12
+                            .form-group
+                                // Address1
+                                p
+                                    input#address1.form-control(type='text' name='address1' placeholder='Address 1 - 1234 Main st' required='')
+                        .col-md-12
+                            .form-group
+                                // Address2
+                                p
+                                    input#address2.form-control(type='text' name='address2' placeholder='Address 2 -Apartment, studio, or floor' required='')
+                        .col-md-4
+                            .form-group
+                                // Country
+                                p
+                                    select.form-select(aria-label='.form-select-lg example' name='country')
+                                        option(name='0' value='0' selected='') Country..
+                                        option(name='1' value='Nigeria') Nigeria
+                                        option(name='2' value='United States') United States
+                                        option(name='3' value='Canada') Canada
+                        .col-md-4
+                            .form-group
+                                // State
+                                p
+                                    select.form-select(aria-label='.form-select-lg example' name='state')
+                                        option(name='0' value='0' selected='') Select-State..
+                                        option(name='1' value='Lagos') Lagos
+                                        option(name='2' value='Minnesota') Minnesota
+                                        option(name='3' value='Ontario') Ontario
+                        .col-md-4
+                            .form-group
+                                // Zip/Postal code
+                                p
+                                    input#zip_postal.form-control(type='text' name='zip_postal' placeholder='Zip/Postal Code' required='')
+                    // Submit Button
+                    .text-center
+                        button#submit.btn.btn-primary.btn-xl.text-uppercase(type='submit') Sign Up
+                    .col-md-12
+                        br
+                        p
+                            | Already have an account? Please 
+                            a(href='/login') Login

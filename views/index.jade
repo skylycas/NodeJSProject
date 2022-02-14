@@ -1,0 +1,181 @@
+extends layout
+
+block content
+		// Masthead
+		header.masthead
+			.container
+				.smallbox1
+					.masthead-subheading Welcome To StelChi Vacation Homes!
+				.masthead-heading.text-uppercase It's Nice To Meet You
+				a.btn.btn-primary.btn-xl.text-uppercase(href='#rooms') BOOK A ROOM
+		// Services
+		section#services.page-section
+			.container
+				.text-center
+					h2.section-heading.text-uppercase Services
+					// <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+				ul.timeline
+					li
+						.timeline-image
+							img.rounded-circle.img-fluid(src='images/services/1.jpg' alt='...')
+						.timeline-panel
+							.timeline-heading
+								h4 Accomodations
+								// <h4 class="subheading">Our Humble Beginnings</h4>
+							.timeline-body
+								p.text-muted
+									| With us, you do not have to worry about being far from home,
+									| we provide a place just like home. From entire apartments to
+									| private rooms and master’s bedrooms, accommodation that
+									| matches your budget. Queen size beds in all bedrooms plus
+									| additional queen-size sofa-couch. All toilet accessories are
+									| provided and more. Fully equipped kitchen including a big sized
+									| re-refrigerator, microwave and stove. Large dining spaces. All
+									| accommodation located close to GO transit with easy bus
+									| access. Experience home away from home with Stella.
+					li.timeline-inverted
+						.timeline-image
+							img.rounded-circle.img-fluid(src='images/services/2.jpg' alt='...')
+						.timeline-panel
+							.timeline-heading
+								h4 Visa Processing
+								// <h4 class="subheading">An Agency is Born</h4>
+							.timeline-body
+								p.text-muted
+									| The Canadian visa processing time could take about 2 months,
+									| while the renewal of Canada visa takes 2 weeks. Fees include
+									| biometrics fee.
+					li
+						.timeline-image
+							img.rounded-circle.img-fluid(src='images/services/3.jpg' alt='...')
+						.timeline-panel
+							.timeline-heading
+								h4 Transportation
+								// <h4 class="subheading">Transition to Full Service</h4>
+							.timeline-body
+								p.text-muted
+									| Transportation includes AIRPORT PICKUP, visit to astonishing
+									| tourism cites in the great city of Toronto and Niagara. Trips to
+									| spas and restaurants of choice. Relive your experience with an
+									| added photographer on all our transportation rides!
+					li.timeline-inverted
+						.timeline-image
+							h4
+								| Home
+								br
+								|                                 Away
+								br
+								|                                 From Home!
+		// rooms Grid
+		section#rooms.page-section.bg-light
+			.container
+				.text-center
+					h2.section-heading.text-uppercase rooms
+					// <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+				.row
+					each room in rooms
+						.col-lg-4.col-sm-6.mb-4
+							// rooms item 1
+							.rooms-item
+								a.rooms-link(data-bs-toggle='modal' href='#roomsModal1')
+									.rooms-hover
+										.rooms-hover-content
+											i.fas.fa-plus.fa-3x
+									img.img-fluid(src='images/rooms/#{room.imagename}' alt='...')
+									//- img.img-fluid(src='images/rooms/ss.jpg' alt='...')
+								.rooms-caption
+									.rooms-caption-heading #{room.roomtitle}
+									// <div class="rooms-caption-subheading text-muted">Details about the room</div>
+									form(action='/' method='POST')
+										input#roomid(type='hidden' name='roomid' value='#{room._id}')
+										input#roomtitle(type='hidden' name='roomtitle' value='#{room.roomtitle}')
+										input#imagename(type='hidden' name='imagename' value='#{room.imagename}')
+										input#price(type='hidden' name='price' value='#{room.price}')
+										//- a.btn.btn-primary(href='bookroom') Book this Room
+										button.btn.btn-primary(type='submit') Book this Room ( $#{room.price}/Night )
+		// Team
+		section#team.page-section.bg-light
+			.container
+				.text-center
+					h2.section-heading.text-uppercase Our Amazing Team
+					// <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+				.row
+					.col-lg-4
+						.team-member
+							img.mx-auto.rounded-circle(src='images/team/ceo.jpeg' alt='...')
+							h4 Stella Maduabuna
+							p.text-muted CEO/Host
+							a.btn.btn-dark.btn-social.mx-2(href='#!')
+								i.fab.fa-twitter
+							a.btn.btn-dark.btn-social.mx-2(href='#!')
+								i.fab.fa-facebook-f
+							a.btn.btn-dark.btn-social.mx-2(href='#!')
+								i.fab.fa-linkedin-in
+					.col-lg-4
+						.team-member
+							img.mx-auto.rounded-circle(src='images/team/2.jpeg' alt='...')
+							h4 Mother Birth
+							p.text-muted Visa Consultant
+							a.btn.btn-dark.btn-social.mx-2(href='#!')
+								i.fab.fa-twitter
+							a.btn.btn-dark.btn-social.mx-2(href='#!')
+								i.fab.fa-facebook-f
+							a.btn.btn-dark.btn-social.mx-2(href='#!')
+								i.fab.fa-linkedin-in
+					.col-lg-4
+						.team-member
+							img.mx-auto.rounded-circle(src='images/team/3.jpeg' alt='...')
+							h4 Larry Parker
+							p.text-muted Hospitality Consultant
+							a.btn.btn-dark.btn-social.mx-2(href='#!')
+								i.fab.fa-twitter
+							a.btn.btn-dark.btn-social.mx-2(href='#!')
+								i.fab.fa-facebook-f
+							a.btn.btn-dark.btn-social.mx-2(href='#!')
+								i.fab.fa-linkedin-in
+				.row
+					.col-lg-8.mx-auto.text-center
+						p.large.text-muted
+							| Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.
+		// Clients
+		.py-5
+			.container
+				.row.align-items-center.text-center
+					.col-md-4.col-sm-6.my-3
+						a(href='#!')
+							img.img-fluid.img-brand.d-block.mx-auto(src='images/instagram.png' alt='...')
+					.col-md-4.col-sm-6.my-3
+						a(href='#!')
+							img.img-fluid.img-brand.d-block.mx-auto(src='images/facebook.png' alt='...')
+					.col-md-4.col-sm-6.my-3
+						a(href='#!')
+							img.img-fluid.img-brand.d-block.mx-auto(src='images/twitter.png' alt='...')
+					//
+						<div class="col-md-3 col-sm-6 my-3">
+						<a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/ibm.svg" alt="..." /></a>
+						</div>
+		// Contact
+		section#contact.page-section
+			.container
+				.text-center
+					h2.section-heading.text-uppercase Contact Us
+					// <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+				form#contactForm
+					.row.align-items-stretch.mb-5
+						.col-md-6
+							.form-group
+								// Name input
+								input#name.form-control(type='text' placeholder='Your Name *' required='')
+							.form-group
+								// Email address input
+								input#email.form-control(type='email' placeholder='Your Email *' required='')
+							.form-group.mb-md-0
+								// Phone number input
+								input#phone.form-control(type='tel' placeholder='Your Phone *' required='')
+						.col-md-6
+							.form-group.form-group-textarea.mb-md-0
+								// Message input
+								textarea#message.form-control(placeholder='Your Message *' required='')
+					// Submit Button
+					.text-center
+						button#submitButton.btn.btn-primary.btn-xl.text-uppercase(type='submit') Send Message
